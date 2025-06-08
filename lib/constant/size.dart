@@ -1,0 +1,1 @@
+const double kMinDesktopwidth = 600;
