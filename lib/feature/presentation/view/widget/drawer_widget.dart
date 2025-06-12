@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smita_portfolio/constant/color.dart';
-import 'package:smita_portfolio/constant/header.dart';
+import 'package:smita_portfolio/config/color.dart';
+import 'package:smita_portfolio/config/header.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
@@ -24,6 +24,10 @@ class DrawerWidget extends StatelessWidget {
         icon: Icon(Icons.close, color: CusColor.white,size: 24,),
       ),
     ),
+        ),
+        Divider(
+          color: CusColor.kBlack300,
+          thickness: 2,
         ),
        for(int i=0; i<navIcon.length;i++)
        ListTile(

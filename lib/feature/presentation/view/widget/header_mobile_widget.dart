@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smita_portfolio/constant/color.dart';
+import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/feature/presentation/view/widget/logo_widget.dart';
 
 class HeaderMobileWidget extends StatefulWidget {

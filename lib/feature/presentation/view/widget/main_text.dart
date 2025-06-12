@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smita_portfolio/constant/color.dart';
+import 'package:smita_portfolio/config/color.dart';
 
 class MainText extends StatelessWidget {
   const MainText({

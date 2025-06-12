@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smita_portfolio/feature/presentation/view/home_page.dart';
+import 'package:smita_portfolio/feature/presentation/view/widget/home_page.dart';
 
 void main() {
   runApp(const MyApp());
