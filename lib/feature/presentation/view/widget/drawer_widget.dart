@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:smita_portfolio/constant/color.dart';
-import 'package:smita_portfolio/constant/header.dart';
+import 'package:smita_portfolio/config/color.dart';
+import 'package:smita_portfolio/config/header.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
-    super.key,
+    super.key, required this.onNavItemtap,
   });
+  final Function (int) onNavItemtap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +26,16 @@ class DrawerWidget extends StatelessWidget {
       ),
     ),
         ),
+        Divider(
+          color: CusColor.kBlack300,
+          thickness: 2,
+        ),
        for(int i=0; i<navIcon.length;i++)
        ListTile(
         contentPadding: EdgeInsets.symmetric(horizontal: 30,),
-        onTap: (){},
+        onTap: (){
+          onNavItemtap(i);
+        },
         leading: Icon(navIcon[i],size: 30,color: CusColor.white,),
         title: Text(navTitle[i], style: TextStyle(
     color: CusColor.white,

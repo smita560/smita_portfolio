@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:smita_portfolio/constant/color.dart';
-import 'package:smita_portfolio/constant/header.dart';
+import 'package:smita_portfolio/config/color.dart';
+import 'package:smita_portfolio/config/header.dart';
 import 'package:smita_portfolio/feature/presentation/view/widget/logo_widget.dart';
 
  class HeaderDeskboard extends StatelessWidget {
   const HeaderDeskboard({
-    super.key,
+    super.key, required this.onNavMenuTap,
   });
+  final Function(int) onNavMenuTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,9 @@ import 'package:smita_portfolio/feature/presentation/view/widget/logo_widget.dar
           for(int i=0; i<navTitle.length; i++) 
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: TextButton(onPressed: (){}, child: Text(navTitle[i],style: TextStyle(color:CusColor.white,fontSize: 16,fontWeight: FontWeight.w500),)),
+            child: TextButton(onPressed: (){
+              onNavMenuTap(i);
+            }, child: Text(navTitle[i],style: TextStyle(color:CusColor.white,fontSize: 16,fontWeight: FontWeight.w500),)),
           )
         ],
       ),
