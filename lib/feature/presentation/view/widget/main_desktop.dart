@@ -29,7 +29,7 @@ class MainDesktop extends StatelessWidget {
                 onPressed: (){}, child: Text("Get in touch",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),))
             ],
           ),
-          Image.asset('assets/img/smita.png',
+          Image.asset('assets/smita.png',
             height: 500,
             width: 500,
             fit: BoxFit.cover,

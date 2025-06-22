@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/config/size.dart';
 import 'package:smita_portfolio/constant/links.dart';
+import 'package:smita_portfolio/feature/presentation/view/project/project_section.dart';
 import 'package:smita_portfolio/feature/presentation/view/skillpage/skill_mobile.dart';
 import 'package:smita_portfolio/feature/presentation/view/widget/contact_section.dart';
 import 'package:smita_portfolio/feature/presentation/view/widget/drawer_widget.dart';
@@ -55,7 +56,7 @@ final List <GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
                 MainDesktop()
                 else
                 MainText(),
-                                Container(
+                      Container(
                                   key: navbarKeys[1],
                                   
                 padding: EdgeInsets.fromLTRB(25, 25, 25, 60),
@@ -75,12 +76,8 @@ final List <GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
                                 SkillMobile() , 
                                 ]),
                                 )  ,
-                              
-                    Container(
-                              height: 500,
-                              width: double.maxFinite,
-                              color: CusColor.kBlack200,
-                    ),
+                              SizedBox(height: 30,),
+                    ProjectSection(key:navbarKeys[2] ,),
                     //contact
                    ContactSection(key: navbarKeys[3],) , 
                     SizedBox(height: 20,),
@@ -110,6 +107,4 @@ final List <GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
        duration: Duration(microseconds: 500),curve: Curves.easeInOut);
   }
 }
-
-
 
