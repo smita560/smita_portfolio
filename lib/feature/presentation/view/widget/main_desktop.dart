@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smita_portfolio/config/color.dart' show CusColor;
 
 class MainDesktop extends StatelessWidget {
-  const MainDesktop({
-    super.key,
-  });
+  const MainDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,14 @@ class MainDesktop extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Hi,\nI'm smita Karki \n A Flutter Developer",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),),
+              Text(
+                "Hi,\nI'm smita Karki \n A Flutter Developer",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: CusColor.kBlack1000,
+                ),
+              ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: CusColor.kY600,
@@ -26,17 +31,26 @@ class MainDesktop extends StatelessWidget {
                   ),
                   padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
                 ),
-                onPressed: (){}, child: Text("Get in touch",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),))
+                onPressed: () {},
+                child: Text(
+                  "Get in touch",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: CusColor.kBlack1000,
+                  ),
+                ),
+              ),
             ],
           ),
-          Image.asset('assets/smita.png',
-            height: 500,
-            width: 500,
+          Image.asset(
+            'assets/project/smita.jpeg',
+            height: 200,
+            width: 200,
             fit: BoxFit.cover,
-          )
+          ),
         ],
       ),
     );
   }
 }
-

@@ -28,7 +28,7 @@ class ProjectSection extends StatelessWidget {
           runSpacing: 25, 
            children: [
             for(int i = 0; i < workproject.length; i++)
-             ProjectCard(project: workproject.first,),
+             ProjectCard(project: workproject[i],),
            ],
          ),
        ),
@@ -50,7 +50,7 @@ class ProjectSection extends StatelessWidget {
           runSpacing: 25, 
            children: [
             for(int i = 0; i < hobbyProject.length; i++)
-             ProjectCard(project: workproject.first,),
+             ProjectCard(project: hobbyProject[i],),
            ],
          ),
        )

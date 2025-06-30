@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/utils/project_utils.dart';
 import 'dart:js'as js;
@@ -14,8 +15,8 @@ class ProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.antiAlias,
-      height: 280 ,
-      width: 250,
+      height: 350 ,
+      width: 350,
       decoration: BoxDecoration(
         color: CusColor.kBlack500,
         borderRadius: BorderRadius.circular(10),
@@ -24,7 +25,7 @@ class ProjectCard extends StatelessWidget {
         crossAxisAlignment:CrossAxisAlignment.start ,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(project.image,height: 140,width: 250,
+          Image.asset("assets/project/vmgd.jpeg",height: 120,width: 250,
           fit: BoxFit.cover,),
           Padding(
             padding: const EdgeInsets.fromLTRB(12,15,12,12),
@@ -59,19 +60,19 @@ class ProjectCard extends StatelessWidget {
                     onTap: (){
                       js.context.callMethod('open', [project.iosLink]);
                     },
-                    child: Image.asset("assets/icons/apple.png",height: 20,width: 20,)),
+                    child: SvgPicture.asset("assets/project/apple-brands-solid.svg",height: 20,width: 20,color: CusColor.kBlack1000,)),
                   SizedBox(width: 10,),
                   if(project.andriodLink!= null)
                   InkWell(
                       onTap: (){js.context.callMethod('open', [project.andriodLink]);},
-                    child: Image.asset("assets/icons/andriod.png",height: 20,width: 20,)),
+                    child: SvgPicture.asset("assets/project/android-brands-solid.svg",height: 20,width: 20,color: CusColor.kBlack1000,)),
                     SizedBox(width: 10,),
                     if(project.webLink!= null)
                   InkWell(
                       onTap: (){
                         js.context.callMethod('open', [project.webLink]);
                       },
-                    child: Image.asset("assets/icons/web.png",height: 20,width: 20,)),
+                    child:SvgPicture.asset("assets/project/globe-solid.svg",height: 20,width: 20,color: CusColor.kBlack1000)),
                  ],),
           ),
           
