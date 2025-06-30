@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/feature/presentation/view/skillpage/skill_widget.dart';
 
@@ -48,7 +49,7 @@ class _SkillPageState extends State<SkillPage> {
                   ),
                  child: ListTile(
                   contentPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                  leading: Image.asset(platformItems[i]["svg"], color: CusColor.white,  ),
+                  leading: SvgPicture.asset(platformItems[i]["svg"], color: CusColor.white,  ),
                   title: Text(platformItems[i]["title"],style: TextStyle(color: CusColor.white),),
                  ),
                 )
@@ -72,7 +73,7 @@ class _SkillPageState extends State<SkillPage> {
                         Chip(
                           backgroundColor: CusColor.kBlack200,
                           label: Text(skillItems[i]["title"], style: TextStyle(color: CusColor.white),),
-                          avatar: Image.asset(skillItems[i]["img"]),
+                          avatar: SvgPicture.asset(skillItems[i]["svg"]),
                         ),
                       ],
                                       )

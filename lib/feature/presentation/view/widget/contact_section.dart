@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/config/cusformfield.dart';
 import 'package:smita_portfolio/config/size.dart';
@@ -72,17 +73,16 @@ return buildnameEmailFieldMobile();
               onTap: (){
                 js.context.callMethod('open',[Applinks.github]);
               },
-              child: Icon(Icons.gite,weight: 32)),
+              child: SvgPicture.asset('assets/project/github.svg',height: 32,color: CusColor.kBlack1000,),),
                 InkWell(
                  
-                  onTap:(){ js.context.callMethod('open',[Applinks.facebook]);} , child: Icon(Icons.facebook,weight: 32,)),  
+                  onTap:(){ js.context.callMethod('open',[Applinks.facebook]);} , child: SvgPicture.asset('assets/project/facebook.svg',height: 32,color: CusColor.kBlack1000,)),  
                  InkWell( onTap: (){ js.context.callMethod('open',[Applinks.instagram]);},
-                  child: Icon(Icons.install_desktop,weight: 32)),
+                  child:  SvgPicture.asset('assets/project/instagram.svg',height: 32,color: CusColor.kBlack1000,)),
                     InkWell(
-                      onTap: (){ js.context.callMethod('open',[Applinks.linkedin]);},
-                      child: Icon(Icons.link,weight: 32)),
-              ],
-            )
+                      onTap: (){ js.context.callMethod('open',[Applinks.linkedin,]);},
+                       child:  SvgPicture.asset('assets/project/linkdin.svg',height: 32,color: CusColor.kBlack1000,))
+              ]  )
 
             ],
           ),
