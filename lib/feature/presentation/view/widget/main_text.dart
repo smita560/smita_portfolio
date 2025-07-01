@@ -32,7 +32,7 @@ class MainText extends StatelessWidget {
                         ).createShader(bounds);
                       },
                       blendMode: BlendMode.srcATop,
-                      child: Image.asset('assets/img/smita.png')
+                      child: Image.asset('assets/project/smita.jpeg',height: 200,width: 200,)
           ), 
           SizedBox(height: 30,),
               Text("Hi,\nI'm smita Karki \n A Flutter Developer",

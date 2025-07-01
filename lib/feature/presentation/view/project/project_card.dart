@@ -25,7 +25,7 @@ class ProjectCard extends StatelessWidget {
         crossAxisAlignment:CrossAxisAlignment.start ,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset("assets/project/vmgd.jpeg",height: 120,width: 250,
+        Image.asset(project.img,height: 120,width: 250,
           fit: BoxFit.cover,),
           Padding(
             padding: const EdgeInsets.fromLTRB(12,15,12,12),

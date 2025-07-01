@@ -26,7 +26,7 @@ class _ContactSectionState extends State<ContactSection> {
                 color: CusColor.white,
                 fontSize: 24,
                 fontWeight: FontWeight.w600
-              ),),
+              ),), 
               SizedBox(height: 20,),
               ConstrainedBox(
                 constraints: BoxConstraints(maxHeight: 100,maxWidth: 700),
