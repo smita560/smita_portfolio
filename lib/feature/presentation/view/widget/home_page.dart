@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/config/size.dart';
-import 'package:smita_portfolio/constant/links.dart';
 import 'package:smita_portfolio/feature/presentation/view/project/project_section.dart';
 import 'package:smita_portfolio/feature/presentation/view/skillpage/skill_mobile.dart';
 import 'package:smita_portfolio/feature/presentation/view/widget/contact_section.dart';
@@ -64,7 +63,6 @@ class _HomePageState extends State<HomePage> {
                   MainText(),
                 Container(
                   key: navbarKeys[1],
-
                   padding: EdgeInsets.fromLTRB(25, 25, 25, 60),
                   width: double.maxFinite,
                   color: CusColor.kBlack100,
@@ -79,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      if (constraints.maxWidth >= kMinDesktopwidth)
+                      if (constraints.maxWidth >= kMedDesktopwidth)
                         SkillPage()
                       else
                         SkillMobile(),
