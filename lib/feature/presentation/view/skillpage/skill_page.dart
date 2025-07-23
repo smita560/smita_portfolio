@@ -3,81 +3,98 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/feature/presentation/view/skillpage/skill_widget.dart';
 
-class SkillPage extends StatefulWidget {
+class SkillPage extends StatelessWidget {
   const SkillPage({super.key});
 
   @override
-  State<SkillPage> createState() => _SkillPageState();
-}
-
-class _SkillPageState extends State<SkillPage> {
-  @override
-Widget build(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Left: Platform Items
-            Flexible(
-              flex: 1,
-              child: Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: [
-                  for (int i = 0; i < platformItems.length; i++)
-                    Container(
-                      width: 200,
+  Widget build(BuildContext context) {
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1200),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // LEFT: Platform Items in GridView (Containers)
+              Expanded(
+                flex: 1,
+                child: GridView.builder(
+                  itemCount: platformItems.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    childAspectRatio: 2.5,
+                  ),
+                  itemBuilder: (context, index) {
+                    final item = platformItems[index];
+                    return Container(
                       decoration: BoxDecoration(
-                        color: CusColor.kBlack100,
-                        borderRadius: BorderRadius.circular(5),
+                        color: CusColor.kBlack400,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: const Color.fromARGB(26, 1, 0, 0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 4,
+                            offset: const Offset(2, 2),
+                          ),
+                        ],
                       ),
-                      child: ListTile(
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        leading: SvgPicture.asset(
-                          platformItems[i]["svg"],
-                          color: CusColor.white,
-                        ),
-                        title: Text(
-                          platformItems[i]["title"],
-                          style: TextStyle(color: CusColor.white),
-                        ),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            item["svg"],
+                            color: CusColor.white,
+                            width: 24,
+                            height: 24,
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              item["title"],
+                              style: TextStyle(
+                                color: CusColor.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                ],
+                    );
+                  },
+                ),
               ),
-            ),
 
-            SizedBox(width: 30),
+              const SizedBox(width: 30),
 
-            // Right: Skill Chips
-            Flexible(
-              flex: 2,
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 600),
+              // RIGHT: Skill Chips
+              Expanded(
+                flex: 2,
                 child: Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
+                  spacing: 12,
+                  runSpacing: 12,
                   children: [
-                    for (int i = 0; i < skillItems.length; i++)
+                    for (var item in skillItems)
                       Chip(
                         backgroundColor: CusColor.kBlack200,
+                        avatar: SvgPicture.asset(item["svg"], width: 20, height: 20),
                         label: Text(
-                          skillItems[i]["title"],
+                          item["title"],
                           style: TextStyle(color: CusColor.white),
                         ),
-                        avatar: SvgPicture.asset(skillItems[i]["svg"]),
                       ),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ],
-    ),
-  );
-}
+      ),
+    );
+  }
 }
