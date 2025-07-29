@@ -54,7 +54,7 @@ class _ProjectCardState extends State<ProjectCard> with SingleTickerProviderStat
 
     return Container(
       clipBehavior: Clip.antiAlias,
-      height: 350,
+      height: 400,
       width: 350,
       decoration: BoxDecoration(
         color: CusColor.kBlack500,
@@ -66,8 +66,8 @@ class _ProjectCardState extends State<ProjectCard> with SingleTickerProviderStat
           // Image
           Image.asset(
             project.img,
-            height: 120,
-            width: 250,
+            height: 200,
+            width: double.infinity,
             fit: BoxFit.cover,
           ),
 

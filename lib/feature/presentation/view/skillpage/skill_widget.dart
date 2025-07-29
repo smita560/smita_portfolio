@@ -27,14 +27,14 @@ const List <Map> skillItems= [
   },
   {
     "title": "dart",
-    "svg": "assets/project/flutter.svg",
+    "svg": "assets/project/dart.svg",
   },
   {
     "title": "Html5",
-     "svg": "assets/project/flutter.svg",
+     "svg": "assets/project/html.svg",
   },
   {
     "title": "Css3",
-    "svg": "assets/project/flutter.svg",
+    "svg": "assets/project/css.svg",
   },
 ];

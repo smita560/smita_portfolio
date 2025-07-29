@@ -65,9 +65,9 @@ class _MainDesktopState extends State<MainDesktop> with SingleTickerProviderStat
               const SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: CusColor.kY600,
+                  backgroundColor: CusColor.kR800,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
                 ),
@@ -83,11 +83,14 @@ class _MainDesktopState extends State<MainDesktop> with SingleTickerProviderStat
               ),
             ],
           ),
-          Image.asset(
-            'assets/project/smita.jpeg',
-            height: 200,
-            width: 200,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              'assets/project/smita.jpeg',
+              height: 200,
+              width: 200,
+              fit: BoxFit.cover,
+            ),
           ),
         ],
       ),

@@ -109,9 +109,9 @@ class _ContactSectionState extends State<ContactSection> {
                   width: double.maxFinite,
                   child: ElevatedButton(
                      style: ElevatedButton.styleFrom(
-                          backgroundColor: CusColor.kY600,
+                          backgroundColor: CusColor.kR800,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(4),
                           ),
                         ),
                     onPressed: (){
@@ -133,9 +133,7 @@ class _ContactSectionState extends State<ContactSection> {
 
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 },
-
-                        
-                    child: Text("Get in touch",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),))),
+                    child: Text("Submit",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),))),
                 ),
                 SizedBox(height: 30,),
                 ConstrainedBox(
