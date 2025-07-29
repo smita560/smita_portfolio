@@ -7,6 +7,7 @@ class CusFormField extends StatelessWidget {
   final Color bordercolor;
   final TextEditingController controller;
   final int maxLines;
+  final String? Function(String?)? validator;
 
   const CusFormField({
     super.key,
@@ -14,7 +15,7 @@ class CusFormField extends StatelessWidget {
     this.labeltext,
     required this.bordercolor,
     required this.controller,
-    this.maxLines = 1,
+    this.maxLines = 1, this.validator,
   });
 
   @override
@@ -39,6 +40,7 @@ class CusFormField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             maxLines: maxLines,
+            validator: validator,
             style: TextStyle(
               color: CusColor.kBlack100,
               fontSize: 16,

@@ -25,6 +25,22 @@ class _ContactSectionState extends State<ContactSection> {
   final TextEditingController messageController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+String ?validateName(String?value){
+  if(value ==null || value.isEmpty){
+    return "Name is required";
+  }
+  return null;
+}
+String ?validateEmail(String?value){
+  if(value ==null || value.isEmpty){
+    return "Email is required";
+  }
+  final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
+  if(!emailRegex.hasMatch(value)){
+    return "Please enter a valid email address";
+  }
+  return null;
+}
 
 
   Future<bool> sendMessage({
@@ -54,19 +70,12 @@ class _ContactSectionState extends State<ContactSection> {
           },
         }),
       );
-
-      //make sure this template_params should match with your template
-        
-       //If you needed create function for acknowledge also
-
       _isSending = false;
-      // notifyListeners();
 
       return responseToMe.statusCode == 200 ;
           
     } catch (e) {
       _isSending = false;
-      // notifyListeners();
       return false;
     }
   }
@@ -87,18 +96,21 @@ class _ContactSectionState extends State<ContactSection> {
                   fontWeight: FontWeight.w600
                 ),), 
                 SizedBox(height: 20,),
-                ConstrainedBox(
-                  constraints: BoxConstraints(maxHeight: 100,maxWidth: 700),
-                  child: LayoutBuilder(builder: (context,constraints){
-            if(constraints.maxWidth>=kMinDesktopwidth){
-              return buildnameEmailFieldDesktop();
-            }
-            return buildnameEmailFieldMobile();
-                  }
-                  
-                ),
-                ),
-                       SizedBox(height: 30,),
+            
+              SizedBox(height: 30,),
+              CusFormField(hinttext: 'Enter your  name',
+                          bordercolor: CusColor.black,
+                      controller: nameController,
+                      validator: validateName,
+                    
+                      ),
+                       SizedBox(height: 20,),
+                      CusFormField(hinttext: 'Enter your email',
+                       bordercolor: CusColor.black,
+                        controller: TextEditingController(),
+                        validator: validateEmail,
+                        ),
+                         SizedBox(height: 20,),
               CusFormField(hinttext: 'Enter your Message',
                bordercolor: CusColor.black,
                 controller: messageController,
@@ -114,10 +126,9 @@ class _ContactSectionState extends State<ContactSection> {
                             borderRadius: BorderRadius.circular(4),
                           ),
                         ),
-                    onPressed: (){
-                  
-                  }, child: GestureDetector(
-                       onTap: () async {
+                    onPressed: () async {
+                      if(_formKey.currentState?.validate() ?? false) {
+                         
   final success = await sendMessage(
     name: nameController.text,
     email: emailController.text,
@@ -132,8 +143,9 @@ class _ContactSectionState extends State<ContactSection> {
   );
 
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-},
-                    child: Text("Submit",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),))),
+                        }
+                  
+                  }, child: Text("Submit",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),)),
                 ),
                 SizedBox(height: 30,),
                 ConstrainedBox(
@@ -171,14 +183,17 @@ class _ContactSectionState extends State<ContactSection> {
                     Flexible(
                       child: CusFormField(hinttext: 'Enter your  name',
                           bordercolor: CusColor.black,
-                      controller: nameController
+                      controller: nameController,
+                      validator: validateName,
+                    
                       ),
                     ),
                     SizedBox(width: 10,),
                     Flexible(
                       child: CusFormField(hinttext: 'Enter your email',
                        bordercolor: CusColor.black,
-                        controller: TextEditingController()
+                        controller: TextEditingController(),
+                        validator: validateEmail,
                         ),
                     ),
                   ],
@@ -191,14 +206,16 @@ class _ContactSectionState extends State<ContactSection> {
                     Flexible(
                       child: CusFormField(hinttext: 'Enter your  name',
                           bordercolor: CusColor.black,
-                      controller: nameController
+                      controller: nameController,
+                      validator: validateName,
                       ),
                     ),
                     SizedBox(height: 15,),
                     Flexible(
                       child: CusFormField(hinttext: 'Enter your email',
                        bordercolor: CusColor.black,
-                        controller: emailController
+                        controller: emailController,
+                        validator: validateEmail,
                         ),
                     ),
                   ],
