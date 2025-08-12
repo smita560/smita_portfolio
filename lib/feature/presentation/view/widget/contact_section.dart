@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/config/cusformfield.dart';
@@ -9,6 +7,7 @@ import 'package:smita_portfolio/config/size.dart';
 import 'dart:js'as js;
 
 import 'package:smita_portfolio/constant/s.s_links.dart';
+import 'package:smita_portfolio/feature/presentation/view/widget/hover_widget.dart';
 
 class ContactSection extends StatefulWidget {
   const ContactSection({super.key});
@@ -152,28 +151,35 @@ String ?validateEmail(String?value){
                   constraints: BoxConstraints(maxHeight: 700),
                   child: Divider()),
                 SizedBox(height: 15,),
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 12,
-                runSpacing: 12,
-                children: [
-               InkWell(
-                onTap: (){
-                  js.context.callMethod('open',[Applinks.github]);
-                },
-                child: SvgPicture.asset('assets/project/github.svg',height: 32,color: CusColor.kBlack1000,),),
-                  InkWell(
-                   
-                    onTap:(){ js.context.callMethod('open',[Applinks.facebook]);} , child: SvgPicture.asset('assets/project/facebook.svg',height: 32,color: CusColor.kBlack1000,)),  
-                   InkWell( onTap: (){ js.context.callMethod('open',[Applinks.instagram]);},
-                    child:  SvgPicture.asset('assets/project/instagram.svg',height: 32,color: CusColor.kBlack1000,)),
-                      InkWell(
-                        onTap: (){ js.context.callMethod('open',[Applinks.linkedin,]);},
-                         child:  SvgPicture.asset('assets/project/linkdin.svg',height: 32,color: CusColor.kBlack1000,))
-                ]  )
+               Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 12,
+              runSpacing: 12,
+              children: const [
+                HoverIcon(
+                  assetPath: 'assets/project/github.svg',
+                  url: Applinks.github,
+                  color: CusColor.kBlack1000,
+                ),
+                HoverIcon(
+                  assetPath: 'assets/project/facebook.svg',
+                  url: Applinks.facebook,
+                  color: CusColor.kBlack1000,
+                ),
+                HoverIcon(
+                  assetPath: 'assets/project/instagram.svg',
+                  url: Applinks.instagram,
+                  color: CusColor.kBlack1000,
+                ),
+                HoverIcon(
+                  assetPath: 'assets/project/linkdin.svg',
+                  url: Applinks.linkedin,
+                  color: CusColor.kBlack1000,
+                ),
             
               ],
             ),
+           ] )
           ),
         );
   }
