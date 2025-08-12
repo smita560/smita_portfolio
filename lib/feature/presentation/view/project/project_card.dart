@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smita_portfolio/config/color.dart';
+import 'package:smita_portfolio/feature/presentation/view/widget/hover_widget.dart';
 import 'package:smita_portfolio/utils/project_utils.dart';
 import 'dart:js' as js;
 
@@ -125,37 +126,18 @@ class _ProjectCardState extends State<ProjectCard> with SingleTickerProviderStat
                 ),
                 const Spacer(),
                 if (project.iosLink != null)
-                  InkWell(
-                    onTap: () => js.context.callMethod('open', [project.iosLink]),
-                    child: SvgPicture.asset(
-                      "assets/project/apple-brands-solid.svg",
-                      height: 20,
-                      width: 20,
-                      color: CusColor.kBlack1000,
-                    ),
-                  ),
+                HoverIcon(
+                  assetPath:'assets/project/apple-brands-solid.svg',
+                  url: project.iosLink??'',
+                  color: CusColor.kBlack1000,
+                ),
                 const SizedBox(width: 10),
                 if (project.andriodLink != null)
-                  InkWell(
-                    onTap: () => js.context.callMethod('open', [project.andriodLink]),
-                    child: SvgPicture.asset(
-                      "assets/project/android-brands-solid.svg",
-                      height: 20,
-                      width: 20,
-                      color: CusColor.kBlack1000,
-                    ),
-                  ),
-                const SizedBox(width: 10),
-                if (project.webLink != null)
-                  InkWell(
-                    onTap: () => js.context.callMethod('open', [project.webLink]),
-                    child: SvgPicture.asset(
-                      "assets/project/globe-solid.svg",
-                      height: 20,
-                      width: 20,
-                      color: CusColor.kBlack1000,
-                    ),
-                  ),
+                HoverIcon(
+                  assetPath:'assets/project/android-brands-solid.svg',
+                  url: project.andriodLink??'',
+                  color: CusColor.kBlack1000,
+                ),
               ],
             ),
           ),
