@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/feature/presentation/view/widget/hover_widget.dart';
+import 'package:smita_portfolio/utils/project_doc_panel.dart';
 import 'package:smita_portfolio/utils/project_utils.dart';
 import 'dart:js' as js;
 
@@ -53,95 +54,110 @@ class _ProjectCardState extends State<ProjectCard> with SingleTickerProviderStat
   Widget build(BuildContext context) {
     final project = widget.project;
 
-    return Container(
-      clipBehavior: Clip.antiAlias,
-      height: 400,
-      width: 350,
-      decoration: BoxDecoration(
-        color: CusColor.kBlack500,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Image
-          Image.asset(
-            project.img,
-            height: 200,
-            width: double.infinity,
-            fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+    if (project.docContent != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ProjectDocPanel(
+            title: project.title,
+            docContent: project.docContent!,
           ),
-
-          // Title
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 15, 12, 6),
-            child: Text(
-              project.title,
-              style: TextStyle(
-                color: CusColor.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              ),
+        ),
+      );
+    }
+      },
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        height: 400,
+        width: 350,
+        decoration: BoxDecoration(
+          color: CusColor.kBlack500,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Image
+            Image.asset(
+              project.img,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
-          ),
-
-          // Animated Description
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: AnimatedBuilder(
-              animation: _controller,
-              builder: (context, child) => SlideTransition(
-                position: _slideAnimation,
-                child: FadeTransition(
-                  opacity: _opacityAnimation,
-                  child: child,
-                ),
-              ),
+      
+            // Title
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 15, 12, 6),
               child: Text(
-                project.description,
+                project.title,
                 style: TextStyle(
                   color: CusColor.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w800,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-          ),
-
-          const Spacer(),
-
-          // Footer with Icons
-          Container(
-            color: CusColor.kBlack600,
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-            child: Row(
-              children: [
-                Text(
-                  "Available on ",
-                  style: TextStyle(
-                    color: CusColor.kY600,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+      
+            // Animated Description
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) => SlideTransition(
+                  position: _slideAnimation,
+                  child: FadeTransition(
+                    opacity: _opacityAnimation,
+                    child: child,
                   ),
                 ),
-                const Spacer(),
-                if (project.iosLink != null)
-                HoverIcon(
-                  assetPath:'assets/project/apple-brands-solid.svg',
-                  url: project.iosLink??'',
-                  color: CusColor.kBlack1000,
+                child: Text(
+                  project.description,
+                  style: TextStyle(
+                    color: CusColor.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-                const SizedBox(width: 10),
-                if (project.andriodLink != null)
-                HoverIcon(
-                  assetPath:'assets/project/android-brands-solid.svg',
-                  url: project.andriodLink??'',
-                  color: CusColor.kBlack1000,
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+      
+            const Spacer(),
+      
+            // Footer with Icons
+            Container(
+              color: CusColor.kBlack600,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              child: Row(
+                children: [
+                  Text(
+                    "Available on ",
+                    style: TextStyle(
+                      color: CusColor.kY600,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const Spacer(),
+                  if (project.iosLink != null)
+                  HoverIcon(
+                    assetPath:'assets/project/apple-brands-solid.svg',
+                    url: project.iosLink??'',
+                    color: CusColor.kBlack1000,
+                  ),
+                  const SizedBox(width: 10),
+                  if (project.andriodLink != null)
+                  HoverIcon(
+                    assetPath:'assets/project/android-brands-solid.svg',
+                    url: project.andriodLink??'',
+                    color: CusColor.kBlack1000,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
