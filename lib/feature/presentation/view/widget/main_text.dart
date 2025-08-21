@@ -84,14 +84,23 @@ class _MainTextState extends State<MainText> with SingleTickerProviderStateMixin
                 ,color: CusColor.kBlack1000),),
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-          backgroundColor: CusColor.kY600,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: CusColor.kR800,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                onPressed: (){}, child: Text("Get in touch",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: CusColor.kBlack1000),))
+                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+              ),
+              onPressed: () {},
+              child: Text(
+                "Get in touch",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: CusColor.kBlack1000,
+                ),
+              ),
+                            )
                     
                   ],
                 ),
