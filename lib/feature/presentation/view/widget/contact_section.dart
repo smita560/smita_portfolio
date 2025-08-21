@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/config/cusformfield.dart';
-import 'package:smita_portfolio/config/size.dart';
 import 'dart:js'as js;
 
 import 'package:smita_portfolio/constant/s.s_links.dart';
