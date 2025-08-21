@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smita_portfolio/config/color.dart';
 import 'package:smita_portfolio/config/size.dart';
 import 'package:smita_portfolio/feature/presentation/view/project/project_section.dart';
@@ -18,11 +19,12 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
   final List<GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
-
+  
+  
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -39,7 +41,17 @@ class _HomePageState extends State<HomePage> {
                     },
                   )
                   : null,
-          body: SingleChildScrollView(
+          body: Stack(
+  children: [
+    Positioned.fill(
+      
+      child: SvgPicture.asset(
+        'assets/project/concentric_circle.svg',
+        fit: BoxFit.cover, // background fill
+      ),
+    ),
+   
+          SingleChildScrollView(
             controller: scrollController,
             scrollDirection: Axis.vertical,
             child: Column(
@@ -65,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                   key: navbarKeys[1],
                   padding: EdgeInsets.fromLTRB(25, 25, 25, 60),
                   width: double.maxFinite,
-                  color: CusColor.kBlack100,
+                  color: CusColor.kBlack300,
                   child: Column(
                     children: [
                       Text(
@@ -105,6 +117,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+         ] ),
         );
       },
     );
