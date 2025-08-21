@@ -23,7 +23,31 @@ class _HomePageState extends State<HomePage>with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
   final List<GlobalKey> navbarKeys = List.generate(4, (index) => GlobalKey());
-  
+  late AnimationController _animationController;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2), 
+    )..repeat(reverse: true); 
+
+    _animation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(0, 0.005),
+    ).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -44,13 +68,17 @@ class _HomePageState extends State<HomePage>with TickerProviderStateMixin {
           body: Stack(
   children: [
     Positioned.fill(
-      
-      child: SvgPicture.asset(
-        'assets/project/concentric_circle.svg',
-        fit: BoxFit.cover, // background fill
+      child: SlideTransition(
+        position: _animation,
+        child: Container(
+          color: CusColor.kBlack200,
+          child: SvgPicture.asset(
+             'assets/project/concentric_circle.svg',
+            fit: BoxFit.cover, 
+          ),
+        ),
       ),
     ),
-   
           SingleChildScrollView(
             controller: scrollController,
             scrollDirection: Axis.vertical,
