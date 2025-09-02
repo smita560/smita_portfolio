@@ -31,6 +31,7 @@ Category: Tools / Libraries
 
 📸 Screenshots  
 
+
 📊 Outcome / Highlights  
 🔄 Improved Accessibility: Offline support with HydratedBloc and storage syncing
 🚀 Faster Deployments: Build automation with Makefile & flavor setup

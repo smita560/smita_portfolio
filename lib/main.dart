@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smita_portfolio/feature/presentation/view/web_app_icon.dart';
 import 'package:smita_portfolio/feature/presentation/view/widget/home_page.dart';
 
 void main() {
+    setFavicon('assets/project/smita.png');
+
   runApp(const MyApp());
 }
 
