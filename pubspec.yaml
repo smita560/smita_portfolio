@@ -23,7 +23,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/icon/smita.png"
+  image_path: "assets/project/smita.png"
 
 flutter:
   uses-material-design: true
