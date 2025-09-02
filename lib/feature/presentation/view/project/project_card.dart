@@ -63,6 +63,10 @@ class _ProjectCardState extends State<ProjectCard> with SingleTickerProviderStat
           builder: (context) => ProjectDocPanel(
             title: project.title,
             docContent: project.docContent!,
+            screenshots: [
+              project.screenshots??'',
+        
+            ],
           ),
         ),
       );

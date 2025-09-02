@@ -9,6 +9,7 @@ class ProjectUtils {
   final String?  andriodLink;
   final String? iosLink;
   final String? docContent;
+  final String? screenshots;  
 
   ProjectUtils({
     required this.img,
@@ -17,6 +18,7 @@ class ProjectUtils {
     this.andriodLink,
     this.iosLink,
     this. docContent,
+    this.screenshots,
 
   });
 
@@ -31,6 +33,9 @@ List <ProjectUtils> workproject = [
     andriodLink: 'https://play.google.com/store/apps/details?id=com.example.portfolio',
     iosLink: 'https://apps.apple.com/np/app/vmgd/id6738470077',
     docContent:vmgdProjectDocContent,
+    screenshots: 
+      'assets/project/vmdg_screen.png',
+    
   ),
   ProjectUtils(
     img: 'assets/project/tcmf.png',
@@ -39,6 +44,9 @@ List <ProjectUtils> workproject = [
     andriodLink: ' https://play.google.com/store/apps/details?id=com.cubit.tamworth.prod',
     iosLink: 'https://apps.apple.com/us/app/tcmf-2025/id6739402780',
         docContent:tcmfProjectDocContent,
+        screenshots: 
+      'assets/project/tcmf_screen.png',
+     
   ),
    ProjectUtils(
     img: 'assets/project/samoa.png',
@@ -47,6 +55,9 @@ List <ProjectUtils> workproject = [
     andriodLink: ' https://play.google.com/store/apps/details?id=com.cubit.samet',
     iosLink: 'https://apps.apple.com/np/app/vaaitau-o-samoa/id6746432784',
      docContent:samoaProjectDocContent,
+     screenshots: 
+      'assets/project/samon_screen.png',
+     
   ),
 ];
 
@@ -57,6 +68,8 @@ List <ProjectUtils> workproject = [
     description: 'Period tracker helps you predict your menstrual cycle and fertile days by logging your periods and symptoms',
     andriodLink: 'https://play.google.com/store/apps/details?id=com.example.fooddelivery',
     iosLink: 'https://apps.apple.com/app/food-delivery/id1234567892',
+     screenshots: 
+      'assets/project/samon_screen.png',
   ),
   ProjectUtils(
  img: 'assets/project/tcmf.png',
@@ -64,5 +77,7 @@ List <ProjectUtils> workproject = [
     description: 'A complete e-commerce solution with payment integration.',
     andriodLink: 'https://play.google.com/store/apps/details?id=com.example.ecommerceapp',
     iosLink: 'https://apps.apple.com/app/e-commerce-app/id1234567893',
+     screenshots: 
+      'assets/project/samon_screen.png',
   ),
  ];
